@@ -6,7 +6,8 @@ import { TrainingClasses } from '../entities/training-classes';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT'
   })
 };
 

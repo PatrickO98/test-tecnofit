@@ -51,4 +51,12 @@ export class TrainingclassComponent implements OnInit {
     document.getElementById(target).parentElement.parentElement.classList.toggle("active");
   }
 
+  openModal(target: string): void {
+    document.getElementById(target).style.display = "block";
+  }
+
+  closeModal(target: string): void {
+    document.getElementById(target).style.display = "none";
+  }
+
 }

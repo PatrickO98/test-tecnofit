@@ -42,7 +42,7 @@
             <td>{{ class.events }}</td>
             <td>{{ class.recurrence }}</td>
 
-            <a href="#{{class.id}}" (click)="openOpt(class.id)" class="btn-op" >
+            <a href="#{{class.id}}" (click)="openOpt(class.id)" class="btn-op">
               <span></span>
               <span></span>
               <span></span>
@@ -85,25 +85,38 @@
                       </label>
                       <input type="text" [(ngModel)]="class.place" name="local">
 
-                      <label for="vagas">
-                        Vagas:
-                      </label>
-                      <input type="text" [(ngModel)]="class.vacancies" name="vagas">
+                      <div class="half">
+                        <div>
+                          <label for="vagas">
+                            Vagas:
+                          </label>
+                          <input type="text" [(ngModel)]="class.vacancies" name="vagas">
+                        </div>
 
-                      <label for="duracao">
-                        Duração:
-                      </label>
-                      <input type="text" [(ngModel)]="class.duration" name="duracao">
+                        <div>
+                          <label for="duracao">
+                            Duração:
+                          </label>
+                          <input type="text" [(ngModel)]="class.duration" name="duracao">
+                        </div>
+                      </div>
 
-                      <label for="eventos">
-                        Eventos no Mês:
-                      </label>
-                      <input type="text" [(ngModel)]="class.events" name="eventos">
+                      <div class="half">
+                        <div>
+                          <label for="eventos">
+                            Eventos no Mês:
+                          </label>
+                          <input type="text" [(ngModel)]="class.events" name="eventos">
+                        </div>
 
-                      <label for="nome">
-                        Recorrência:
-                      </label>
-                      <input type="text" [(ngModel)]="class.recurrence" name="recorrencia">
+                        <div>
+                          <label for="nome">
+                            Recorrência:
+                          </label>
+                          <input type="text" [(ngModel)]="class.recurrence" name="recorrencia">
+                        </div>
+                      </div>
+
 
                       <button class="btn btn-success" (click)="saveClass(class)">
                         Salvar

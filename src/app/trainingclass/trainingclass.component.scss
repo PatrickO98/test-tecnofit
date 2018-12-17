@@ -103,6 +103,26 @@ $c7: #bfcbd7;
                     background-color: $c5;
                     border-color: $c6;
                 }
+
+                .modal {
+                    overflow-y: scroll;
+
+                    form {
+                        input {
+                            width: 100%;
+                            margin-bottom: 1rem;
+                        }
+
+                        .half {
+                            display: flex;
+                            justify-content: space-between;
+
+                            div {
+                                width: 48%;
+                            }
+                        }
+                    }
+                }
             }
         }
 
