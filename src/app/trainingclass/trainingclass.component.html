@@ -2,6 +2,120 @@
   <div class="row">
     <h1>Lista de Turmas</h1>
 
-    <i class="fa fa-phone"></i>
+    <div class="search">
+      <label for="filter">
+        <i class="fa fa-search"></i>
+      </label>
+      <input type="text" class="search" placeholder="Procurar turma" name="filter" (keyup)="classFilter($event, searchClass.value)"
+        #searchClass>
+    </div>
+
+    <button class="add">
+      <i class="fa fa-plus"></i>
+      Nova Turma
+    </button>
+  </div>
+</div>
+
+<div class="list-classes">
+  <div class="container">
+    <div class="row">
+      <table class="classes">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Modalidade</th>
+            <th>Local</th>
+            <th>Vagas</th>
+            <th>Duração</th>
+            <th>Eventos no Mês</th>
+            <th>Recorrência</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let class of classes">
+            <td>{{ class.name }}</td>
+            <td>{{ class.modality }} </td>
+            <td>{{ class.place }}</td>
+            <td>{{ class.vacancies }}</td>
+            <td>{{ class.duration }}</td>
+            <td>{{ class.events }}</td>
+            <td>{{ class.recurrence }}</td>
+
+            <a href="#{{class.id}}" (click)="openOpt(class.id)" class="btn-op" >
+              <span></span>
+              <span></span>
+              <span></span>
+
+              <div id="{{class.id}}" class="options">
+                <button class="edit" (click)="openModal('m-'+class.id)">
+                  <i class="fa fa-pencil"></i>
+                  Editar
+                </button>
+                <button class="remove">
+                  <i class="fa fa-times-circle"></i>
+                  Remover
+                </button>
+              </div>
+            </a>
+
+            <div id="m-{{ class.id }}" class="modal" role="dialog">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">{{ class.name }}</h5>
+                    <button type="button" class="close" aria-label="Close" (click)="closeModal('m-'+class.id)">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <label for="nome">
+                        Nome:
+                      </label>
+                      <input type="text" [(ngModel)]="class.name" name="nome">
+
+                      <label for="modalidade">
+                        Modalidade:
+                      </label>
+                      <input type="text" [(ngModel)]="class.modality" name="modalidade">
+
+                      <label for="local">
+                        Local:
+                      </label>
+                      <input type="text" [(ngModel)]="class.place" name="local">
+
+                      <label for="vagas">
+                        Vagas:
+                      </label>
+                      <input type="text" [(ngModel)]="class.vacancies" name="vagas">
+
+                      <label for="duracao">
+                        Duração:
+                      </label>
+                      <input type="text" [(ngModel)]="class.duration" name="duracao">
+
+                      <label for="eventos">
+                        Eventos no Mês:
+                      </label>
+                      <input type="text" [(ngModel)]="class.events" name="eventos">
+
+                      <label for="nome">
+                        Recorrência:
+                      </label>
+                      <input type="text" [(ngModel)]="class.recurrence" name="recorrencia">
+
+                      <button class="btn btn-success" (click)="saveClass(class)">
+                        Salvar
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
