@@ -46,7 +46,6 @@ export class TrainingclassComponent implements OnInit {
   }
 
   openOpt(target: string): void {
-    console.log(target);
     document.getElementById(target).classList.toggle("active");
     document.getElementById(target).parentElement.parentElement.classList.toggle("active");
   }
